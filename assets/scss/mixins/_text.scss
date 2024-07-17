@@ -1,0 +1,34 @@
+$text-aligns: ("left", "right", "center", "justify");
+
+// -- text-align
+@each $prop in $text-aligns {
+    %txt-#{$prop} {
+        text-align: unquote($prop) !important;
+    }
+}
+@each $bp in $media_min_query_all {
+    @include media_min_query($bp) {
+        @each $prop in $text-aligns {
+            %#{$bp}-txt-#{$prop} {
+                text-align: unquote($prop) !important;
+            }
+        }
+    }
+}
+
+// -- text-transform-uppercase
+%txt-uppercase {
+    text-transform: uppercase;
+}
+
+// -- font-feature-settings
+%txt-palt {
+    font-feature-settings: "palt";
+}
+
+// -- text-phone
+%txt-phone {
+    @include media_min_query() {
+        pointer-events: none;
+    }
+}

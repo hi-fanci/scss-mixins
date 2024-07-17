@@ -1,0 +1,17 @@
+// font-weight
+@for $i from 1 to 10 {
+    %fw-#{$i * 100} {
+        font-weight: #{$i * 100};
+    }
+}
+// .class-name {
+//     @extend %fw-100;
+//     @extend %fw-200;
+//     @extend %fw-300;
+//     @extend %fw-400;
+//     @extend %fw-500;
+//     @extend %fw-600;
+//     @extend %fw-700;
+//     @extend %fw-800;
+//     @extend %fw-900;
+// }

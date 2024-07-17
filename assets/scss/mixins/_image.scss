@@ -1,0 +1,21 @@
+$object-fit: ("contain", "fill", "cover", "none");
+@each $prop in $object-fit {
+    %object-#{$prop} {
+        object-fit: $prop;
+    }
+}
+@each $bp in $media_min_query_all {
+    @include media_min_query($bp) {
+        @each $prop in $object-fit {
+            %#{$bp}-object-#{$prop} {
+                object-fit: $prop;
+            }
+        }
+    }
+}
+
+//
+%img-fluid {
+    width: 100%;
+    display: block;
+}

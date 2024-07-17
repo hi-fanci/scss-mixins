@@ -1,0 +1,27 @@
+%line-clamp {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+@include media_min_query() {
+    %md-line-clamp {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+    }
+}
+
+@for $i from 1 through 5 {
+    %line-clamp-#{$i} {
+        -webkit-line-clamp: $i;
+        line-clamp: $i;
+    }
+}
+@include media_min_query() {
+    @for $i from 1 through 5 {
+        %md-line-clamp-#{$i} {
+            -webkit-line-clamp: $i;
+            line-clamp: $i;
+        }
+    }
+}

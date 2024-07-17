@@ -1,0 +1,15 @@
+$positions: ("fixed", "sticky", "absolute", "relative", "static");
+@each $prop in $positions {
+    %p-#{$prop} {
+        position: unquote($prop) !important;
+    }
+}
+@each $bp in $media_min_query_all {
+    @include media_min_query($bp) {
+        @each $prop in $positions {
+            %#{$bp}-p-#{$prop} {
+                position: unquote($prop) !important;
+            }
+        }
+    }
+}

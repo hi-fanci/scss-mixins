@@ -1,0 +1,52 @@
+// open with html 100%
+// $p2r: 0.0625rem;
+
+// open with html 62.5%
+$p2r: 0.1rem;
+$screen-origin: 1600;
+$screen-mobile: 768;
+
+@function fz-liq($min, $max) {
+    $screen: $screen-origin - $screen-mobile;
+    $space: $max - $min;
+
+    @return clamp(#{$min}px, calc(#{$min}px + #{$space} / #{$screen} * (100vw - 768px)), #{$max}px);
+}
+
+$fonts: (
+    "16": (
+        "sp": 14,
+        "pc": 16
+    ),
+    "160": (
+        "sp": 40,
+        "liq": (
+            40,
+            100
+        )
+    )
+);
+
+@each $name, $arr in $fonts {
+    %fz-#{ $name } {
+        @each $type, $unit in $arr {
+            @if ($type == "sp") {
+                font-size: $unit * $p2r;
+            }
+            @elseif ($type == "pc") {
+                @include media_min_query() {
+                    font-size: $unit * $p2r;
+                }
+            } @else {
+                @include media_min_query() {
+                    font-size: fz-liq(nth($unit, 1), nth($unit, 2));
+                }
+            }
+        }
+    }
+}
+
+// .class-name {
+//     @extend %fz-font-size cần thêm vào;
+//     @extend %fz-18;
+// }

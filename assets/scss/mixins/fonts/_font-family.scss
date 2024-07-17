@@ -1,0 +1,54 @@
+// font-family
+$ff-barlow: "Barlow", sans-serif;
+$ff-barlow-condensed: "Barlow Condensed", sans-serif;
+$ff-bebas: "Bebas Neue", sans-serif;
+$ff-inter: "Inter", sans-serif;
+$ff-lato: "Lato", sans-serif;
+$ff-lora: "Lora", serif;
+$ff-mont-serrat: "Montserrat", sans-serif;
+$ff-noto-sans: "Noto Sans JP", sans-serif;
+$ff-noto-serif: "Noto Serif JP", serif;
+$ff-nunito: "Nunito Sans", sans-serif;
+$ff-outfit: "Outfit", sans-serif;
+$ff-oswald: "Oswald", sans-serif;
+$ff-poppins: "Poppins", sans-serif;
+$ff-roboto: "Roboto", sans-serif;
+$ff-roboto-condensed: "Roboto Condensed", sans-serif;
+$ff-rubik: "Rubik", sans-serif;
+$ff-ubuntu: "Ubuntu", sans-serif;
+$ff-overpass: "Overpass", sans-serif;
+$ff-ovo: "Ovo", serif;
+
+$ff: (
+    "barlow": $ff-barlow,
+    "barlow-con": $ff-barlow-condensed,
+    "bebas": $ff-bebas,
+    "inter": $ff-inter,
+    "lato": $ff-lato,
+    "lora": $ff-lora,
+    "mont-serrat": $ff-mont-serrat,
+    "noto-sans": $ff-noto-sans,
+    "noto-serif": $ff-noto-serif,
+    "nunito": $ff-nunito,
+    "outfit": $ff-outfit,
+    "oswald": $ff-oswald,
+    "poppins": $ff-poppins,
+    "roboto": $ff-roboto,
+    "roboto-cond": $ff-roboto-condensed,
+    "rubik": $ff-rubik,
+    "ubuntu": $ff-ubuntu,
+    "overpass": $ff-overpass,
+    "ovo": $ff-ovo
+);
+
+@each $name, $prop in $ff {
+    %ff-#{$name} {
+        font-family: #{$prop} !important;
+    }
+}
+
+// -> use @extend %ff-'font family name';
+// .class-name {
+//     @extend %ff-noto;
+//     @extend %ff-beba;
+// }

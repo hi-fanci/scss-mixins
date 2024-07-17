@@ -1,0 +1,9 @@
+$cursors: (pointer, auto);
+
+@include media_min_query() {
+    @each $cursor in $cursors {
+        %cursor-#{$cursor} {
+            cursor: $cursor !important;
+        }
+    }
+}

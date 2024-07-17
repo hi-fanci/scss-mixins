@@ -1,0 +1,6 @@
+$lts: (-50, -100, 0, 50, 100);
+@each $prop in $lts {
+    %lts-#{$prop} {
+        letter-spacing: #{$prop * 0.001em};
+    }
+}
