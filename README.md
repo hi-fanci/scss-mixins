@@ -26,7 +26,7 @@ container  : 1200px
 ```
 
 > [!TIP]
-> Bấm vào ▶▷ ở đầu dòng để hiển thị chi tiết
+> xem chi tiết ở dưới
 
 <details>
 <summary>font-family</summary>
