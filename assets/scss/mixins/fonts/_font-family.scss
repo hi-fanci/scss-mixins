@@ -1,4 +1,3 @@
-// font-family
 $ff-barlow: "Barlow", sans-serif;
 $ff-barlow-condensed: "Barlow Condensed", sans-serif;
 $ff-bebas: "Bebas Neue", sans-serif;
@@ -46,9 +45,3 @@ $ff: (
         font-family: #{$prop} !important;
     }
 }
-
-// -> use @extend %ff-'font family name';
-// .class-name {
-//     @extend %ff-noto;
-//     @extend %ff-beba;
-// }

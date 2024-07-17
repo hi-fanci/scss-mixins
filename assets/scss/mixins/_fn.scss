@@ -1,0 +1,9 @@
+$screen-origin: 1600;
+$screen-mobile: 768;
+
+@function fn-liq($min, $max) {
+    $screen: $screen-origin - $screen-mobile;
+    $space: $max - $min;
+
+    @return min(calc(#{$min * 0.1rem} + #{$space} / #{$screen} * (100vw - 768px)), #{$max * 0.1rem});
+}

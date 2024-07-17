@@ -18,7 +18,10 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-#wrapper {
+figure img {
+    width: 100%;
+}
+.wrapper {
     position: relative;
     overflow: hidden;
 }
@@ -28,4 +31,19 @@ body {
 }
 .sp {
     @extend %sp;
+}
+
+.nav_link {
+    display: inline-block;
+    transition: 300ms ease-out;
+    @include media_min_query() {
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.item_link {
+    display: inline-block;
+    transition: 300ms ease-out;
 }

@@ -3,16 +3,10 @@
 
 // open with html 62.5%
 $p2r: 0.1rem;
-$screen-origin: 1600;
-$screen-mobile: 768;
 
-@function fz-liq($min, $max) {
-    $screen: $screen-origin - $screen-mobile;
-    $space: $max - $min;
-
-    @return clamp(#{$min}px, calc(#{$min}px + #{$space} / #{$screen} * (100vw - 768px)), #{$max}px);
-}
-
+// sp   : font-size ở SP
+// pc   : font-size ở PC
+// liq  : font-size ở PC nhưng dùng liquid, không cần thêm prop pc:
 $fonts: (
     "16": (
         "sp": 14,
@@ -32,21 +26,15 @@ $fonts: (
         @each $type, $unit in $arr {
             @if ($type == "sp") {
                 font-size: $unit * $p2r;
-            }
-            @elseif ($type == "pc") {
+            } @else if ($type == "pc") {
                 @include media_min_query() {
                     font-size: $unit * $p2r;
                 }
             } @else {
                 @include media_min_query() {
-                    font-size: fz-liq(nth($unit, 1), nth($unit, 2));
+                    font-size: fn-liq(nth($unit, 1), nth($unit, 2));
                 }
             }
         }
     }
 }
-
-// .class-name {
-//     @extend %fz-font-size cần thêm vào;
-//     @extend %fz-18;
-// }
